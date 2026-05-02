@@ -1,0 +1,38 @@
+namespace: dev
+
+frontend:
+  replicaCount: 1
+  image: nginx
+  port: 80
+  service:
+    type: NodePort
+    nodePort: 30007
+
+backend:
+  replicaCount: 2
+  image: k8s-backend:1.0
+  port: 3000
+
+mongo:
+  url: mongodb://admin:password@mongo-0.mongo:27017
+
+ingress:
+  enabled: true
+  host: myapp.local
+
+resources:
+  frontend:
+    requests:
+      cpu: "50m"
+      memory: "64Mi"
+    limits:
+      cpu: "200m"
+      memory: "128Mi"
+
+  backend:
+    requests:
+      cpu: "100m"
+      memory: "128Mi"
+    limits:
+      cpu: "500m"
+      memory: "256Mi"

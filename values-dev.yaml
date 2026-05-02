@@ -1,0 +1,7 @@
+namespace: dev
+
+frontend:
+  replicaCount: 1
+
+backend:
+  replicaCount: 1

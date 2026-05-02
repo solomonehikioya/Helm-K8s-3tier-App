@@ -1,0 +1,10 @@
+namespace: prod
+
+frontend:
+  replicaCount: 3
+
+backend:
+  replicaCount: 3
+
+ingress:
+  host: myapp.com
